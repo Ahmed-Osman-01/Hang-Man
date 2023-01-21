@@ -1,0 +1,342 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --thickness: 4px;
+  --draw-color: #222;
+}
+
+.game-container {
+  width: 800px;
+  background-color: #eee;
+  margin: 50px auto;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.header .title,
+.header .word-class {
+  grid-column: span 1;
+  padding: 10px;
+  background: #176455;
+  color: white;
+  font-size: 22px;
+  text-transform: capitalize;
+}
+
+.header .description {
+  grid-column: span 2;
+  padding: 10px;
+  background-color: #bf361d;
+  color: white;
+  margin-bottom: 10px;
+}
+
+br {
+  color: yellow;
+}
+
+.main {
+  width: 100%;
+  height: 400px;
+  margin-top: 60px;
+  background-color: #ccc;
+  display: flex;
+}
+
+.drawing-container {
+  flex: 1;
+  padding: 10px;
+  padding-bottom: 20px;
+}
+
+.drawing {
+  margin: 0px auto 10px;
+  width: 150px;
+  height: 100%;
+  position: relative;
+  margin-left: 50px;
+}
+
+.drawing .pole {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: var(--thickness);
+  background-color: var(--draw-color);
+  display: none;
+}
+
+.drawing .pole::after {
+  content: "";
+  width: var(--thickness);
+  background-color: var(--draw-color);
+  position: absolute;
+  height: 350px;
+  left: 50%;
+  top: -350px;
+  display: none;
+}
+
+.drawing .branch {
+  height: var(--thickness);
+  background-color: var(--draw-color);
+  position: absolute;
+  width: 150%;
+  top: 65px;
+  left: calc(50% - 40px);
+  display: none;
+}
+
+.drawing .rope {
+  position: absolute;
+  width: var(--thickness);
+  height: 40px;
+  border-right: var(--thickness) dotted var(--draw-color);
+  left: calc(100% + 40px);
+  top: 65px;
+  position: relative;
+  display: none;
+}
+
+.drawing .rope::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: var(--thickness) dotted var(--draw-color);
+  border-top-left-radius: 0%;
+  border-top-right-radius: 70%;
+  border-bottom-right-radius: 30%;
+  border-bottom-left-radius: 70%;
+  left: calc(-30px - (var(--thickness) / 2));
+  top: calc(100% + 5px);
+  transform: rotate(44deg);
+  display: none;
+}
+
+.drawing .man .head {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: var(--thickness) solid var(--draw-color);
+  left: 169px;
+  top: 135px;
+  display: none;
+}
+
+.drawing .man .body {
+  position: absolute;
+  width: var(--thickness);
+  background-color: var(--draw-color);
+  height: 100px;
+  left: 189px;
+  top: 176px;
+  display: none;
+}
+
+.drawing .man .arms::before {
+  content: "";
+  position: absolute;
+  height: var(--thickness);
+  background-color: var(--draw-color);
+  width: 40px;
+  left: 150px;
+  top: 190px;
+  transform-origin: top right;
+  transform: rotate(-45deg);
+  display: none;
+}
+
+.drawing .man .arms::after {
+  content: "";
+  position: absolute;
+  height: var(--thickness);
+  background-color: var(--draw-color);
+  width: 40px;
+  left: 191px;
+  top: 190px;
+  transform-origin: top left;
+  transform: rotate(45deg);
+  display: none;
+}
+
+.drawing .man .legs {
+  display: none;
+}
+
+.drawing .man .legs::before {
+  content: "";
+  position: absolute;
+  height: var(--thickness);
+  background-color: var(--draw-color);
+  width: 40px;
+  left: 150px;
+  top: 270px;
+  transform-origin: top right;
+  transform: rotate(-45deg);
+}
+
+.drawing .man .legs::after {
+  content: "";
+  position: absolute;
+  height: var(--thickness);
+  background-color: var(--draw-color);
+  width: 40px;
+  left: 191px;
+  top: 270px;
+  transform-origin: top left;
+  transform: rotate(45deg);
+}
+
+.drawing.mistake-1 .pole {
+  display: block;
+}
+
+.drawing.mistake-2 .pole::after {
+  display: block;
+}
+
+.drawing.mistake-3 .branch {
+  display: block;
+}
+
+.drawing.mistake-4 .rope {
+  display: block;
+}
+
+.drawing.mistake-5 .rope::after {
+  display: block;
+}
+
+.drawing.mistake-6 .man .head {
+  display: block;
+}
+
+.drawing.mistake-7 .man .body {
+  display: block;
+}
+
+.drawing.mistake-8 .man .arms::before {
+  display: block;
+}
+
+.drawing.mistake-8 .man .arms::after {
+  display: block;
+}
+
+.drawing.mistake-9 .man .legs {
+  display: block;
+}
+
+.letters-container {
+  flex: 1;
+  padding: 15px;
+  background-color: rgb(140, 156, 179);
+  text-align: center;
+}
+
+.letters-container .letters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.letters-container .stop-game {
+  pointer-events: none;
+}
+
+.letters .letter-box {
+  width: 40px;
+  height: 40px;
+  padding: 7px;
+  background-color: violet;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.letters .clicked {
+  pointer-events: none;
+  background-color: grey;
+}
+
+.guessArea-container {
+  width: 100%;
+  padding: 20px;
+  background-color: rgb(206, 188, 188);
+}
+
+.word-guess-area {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.guess-area span {
+  margin: 20px;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  border-bottom: 4px solid #333;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+.cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  opacity: 0.5;
+  left: 0;
+  top: 0;
+  background-color: #333;
+}
+
+.pop-up {
+  background-color: orange;
+  color: white;
+  font-size: 26px;
+  text-align: center;
+  position: absolute;
+  padding: 20px;
+  font-weight: bold;
+  z-index: 111;
+  width: 500px;
+  height: 150px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.pop-up span {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.pop-up .you-lost {
+  color: red;
+}
+
+.pop-up .you-won {
+  color: blueviolet;
+}
+
+.pop-up .play-again {
+  cursor: pointer;
+}

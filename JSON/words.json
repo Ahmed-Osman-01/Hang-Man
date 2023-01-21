@@ -1,0 +1,44 @@
+[
+  {
+    "word": "apple",
+    "class": "fruits",
+    "description": "Rounded and could be red, yellow or green"
+  },
+
+  {
+    "word": "bus",
+    "class": "transportaion",
+    "description": "We use it to go to shool"
+  },
+
+  {
+    "word": "house",
+    "class": "building",
+    "description": "The place where people live in"
+  },
+  {
+    "word": "train",
+    "class": "transportaion",
+    "description": "It's fast and long"
+  },
+  {
+    "word": "plane",
+    "class": "transportaion",
+    "description": "We use it to travel to other counties"
+  },
+  {
+    "word": "ship",
+    "class": "transportaion",
+    "description": "We use it to travel to other counties through the sea"
+  },
+  {
+    "word": "pizza",
+    "class": "food",
+    "description": "It's a food that everyone likes and it has a circle shape"
+  },
+  {
+    "word": "The Unex",
+    "class": "person",
+    "description": "He's a person who have never achieved something in his life and he is craving for success"
+  }
+]
